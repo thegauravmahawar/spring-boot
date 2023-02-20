@@ -68,4 +68,44 @@ Because of this behavior, the `REQUIRES_NEW` transaction attribute should be use
 
 ### Transaction rollback pitfalls
 
+**No rollback support**
+
+```java
+@Transactional(propogation = REQUIRED)
+public TradeData placeTrade(Trade trade) throws Exception {
+    try {
+        insertTrade(trade);
+        updateAccount(trade);
+        return trade;
+    } catch (Exception e) {
+        //log the error
+        throw e;
+    }
+}
+```
+
+Suppose the account does not have enough funds to purchase the stock and throws a checked exception. Does the trade order get persisted in the database or is the entire logical unit of work rolled back? Upon a checked exception, the transaction commits any work that has not yet been committed. If a checked exception occurs during the `updateAccount()` method, the trade order is persisted, but the account isn't updated to reflect the trade.
+
+Run-time exceptions automatically force the entire logical unit of work to roll back, but checked exceptions do not. 
+
+The reason for this behavior is that, not all checked exceptions are bad; they might be used for event notification or to redirect processing based on certain conditions. But more to the point, the application code may be able to take corrective action on some types of checked exceptions, thereby allowing the transaction to complete. 
+
+When we use `Declarative` transaction model, we must specify how the container or framework should handle checked exceptions.
+
+**Adding transaction rollback support**
+
+```java
+@Transactional(propogation = REQUIRED, rollbackFor = Exception.class)
+public TradeData placeTrade(Trade trade) throws Exception {
+    try {
+        insertTrade(trade);
+        updateAccount(trade);
+        return trade;
+    } catch (Exception e) {
+        //log the error
+        throw e;
+    }
+}
+```
+
 On rollback - using `REQUIRES_NEW` will force the start of a new transaction, and so an exception will rollback that transaction. If there is another transaction that was executing as well - that will or will not be rolled back depending on if the exception bubbles up the stack or is caught. 
