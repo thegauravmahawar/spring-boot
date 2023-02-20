@@ -27,6 +27,67 @@ If the `placeTrade()` method had used transactions, both of these activities wou
 
 If instead, we use ORM-based frameworks, we must use transactions. **ORM-based frameworks require a transaction in order to trigger the synchronization between the object cache and the database**. It is through a transaction commit, that the SQL code is generated and the database affected by the desired action (insert, update, or delete). Without a transaction there is no trigger for the ORM to generate SQL code and persist the changes, so the method simply ends - no exceptions, no updates. 
 
+### How to use Spring's @Transactional annotation
+
+```java
+public class UserService {
+
+    @Transactional
+    public long registerUser(User user) {
+        //insert user in DB
+        return id;
+    }
+}
+```
+
+How this works:
+
+- Make sure that your Spring Configuration is annotated with `@EnableTransactionManagement` annotation (in Spring Boot this will be done automatically)
+- Make sure you specify a transaction manager in your Spring Configuration.
+- And then Spring is smart enough to transparently handle transactions. Any bean's `public` method we annotate with `@Transactional` annotation, will execute inside a database transaction.
+
+**To get the @Transactional annotation working**
+
+```java
+@Configuration
+@EnableTransactionManagement
+public class MySpringConfig {
+
+    @Bean
+    public PlatformTransactionManager txManager() {
+        return txManager;
+    }
+}
+```
+
+The `@Transactional` UserService code above translates (simplified) to:
+
+```java
+public class UserService {
+
+    public Long registerUser(User user) {
+        Connection connection = dataSource.getConnection();
+        try (connection) {
+            connection.setAutoCommit(false);
+
+            connection.commit();
+        } catch (SQLException e) {
+            connection.rollback();
+        }
+    }
+}
+```
+
+### @Transactional under the covers
+
+Spring cannot really rewrite our class, to insert the connection code. The `registerUser()` method really just calls `userDao.save(user)`, there's no way to change that on the fly.
+
+Spring, however, has an advantage. At its core, it is an IoC container. It instantiates a `UserService` for us and makes sure to autowire that `UserService` into any other bean that needs a `UserService`.
+
+Now whenever we are using `@Transactional` on a bean, Spring uses a tiny trick. It does not just instantiate a UserService, but also a transactional proxy of that `UserService`.
+
+The `UserService` get proxied on the fly, and the proxy manages transactions. But it is not the proxy itself handling all this transactional state (open, commit, close), the proxy delegates that work to a transaction manager.
+
 ### Spring Framework @Transactional annotation pitfalls
 
 `@Transactional` annotation by itself without any parameters, the propogation mode is set to `REQUIRED`, the read-only flag is set to `false`, the transaction isolation level is set to the database default (usually `READ_COMMITTED`), and the transaction will not rollback on a checked exception.
