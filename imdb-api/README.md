@@ -2,18 +2,45 @@
 
 ## Learn
 - [ ] Spring Boot 3
+  - [ ] Java 17 Features
+  - [x] [Spring Boot 3 Feature Breakdown](https://www.youtube.com/watch?v=AcaR1wBi6mQ)
+  - [ ] [Problem Detail](https://datatracker.ietf.org/doc/html/rfc7807)
+  - [ ] GeneratedValue
+    - [ ] UUID
+  - [ ] ListCrudRepository
+  - [ ] RestController
+    - [ ] ResponseStatus
+  - [ ] spring.datasource
+  - [ ] Lombok
+  - Spring Security
+    - [ ] [Spring Security 6](https://www.youtube.com/watch?v=KxqlJblhzfI)
+  - [ ] WebClient & RouteLocator
+    - [ ] [Declarative REST Client](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html)
+  - [ ] Actuator & Micrometer (Metrics and Tracing)
+    - [ ] [Observability with Spring Boot 3](https://spring.io/blog/2022/10/12/observability-with-spring-boot-3)
 - [ ] Docker Compose with Spring Boot
+  - [x] [Spring Boot Docker Compose](https://www.youtube.com/watch?v=lS1GwdIfk0c)
+  - [ ] [Creating Docker images with Spring Boot](https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1)
+  - [ ] [Docker Compose Support in Spring Boot 3](https://docs.spring.io/spring-boot/docs/3.1.0/reference/html/features.html#features.docker-compose)
+  - [ ] [Buildpacks](https://buildpacks.io)
+  - [ ] TestContainers
 - [ ] POM
 - [ ] Hibernate ORM Tooling
 - [ ] Spring Properties
 - [ ] Logging
+  - [ ] Log4j2
 - [ ] Async Exception Handling
 - [ ] GraalVM
-- [ ] Spring Security
+  - [ ] [Spring Boot in Graal](https://www.youtube.com/watch?v=VRb8JSfI9eg)
+  - [ ] [ahead-of-time compilation and GraalVM](https://www.youtube.com/watch?v=TOfYlLjXufw)
+  - [ ] Compilation: `mvn clean package -P native`
+  - [ ] Memory footprint: `ps -o rss pid`
 - [ ] ORM/Database Performance
 - [ ] Testing
 - [ ] MapReduce
 - [ ] Any OLAP Database
+- [ ] GraphQL
+  - [ ] [Spring for GraphQL](https://docs.spring.io/spring-graphql/docs/current/reference/html/)
 
 ## Features
 
@@ -28,4 +55,5 @@
 - [ ] Show sentiment for a Movie/TV Show based on user reviews.
 - [ ] Flag and remove any review which not appropriate.
 - [ ] Search Top Movies/TV Shows by Ratings/Genres.
+- [ ] Create a GraphQL Client.
 
