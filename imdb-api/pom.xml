@@ -25,13 +25,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        <!--		<dependency>-->
-        <!--			<groupId>org.springframework.boot</groupId>-->
-        <!--			<artifactId>spring-boot-starter-security</artifactId>-->
-        <!--		</dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-security</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
         <!--		<dependency>-->
         <!--			<groupId>org.springframework.boot</groupId>-->
@@ -55,14 +59,29 @@
             <version>9.16.0</version>
         </dependency>
         <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.12.5</version>
-        </dependency>
-        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>32.0.1-jre</version>
         </dependency>
         <!--		<dependency>-->
         <!--			<groupId>org.springframework.amqp</groupId>-->
@@ -87,7 +106,9 @@
                 <jdbc.server>imdb_local</jdbc.server>
                 <jdbc.url>${spring.datasource.url}</jdbc.url>
                 <jdbc.driver>${spring.datasource.driver-class-name}</jdbc.driver>
-                <application.properties.file>${project.build.outputDirectory}/application-${spring.profiles.active}.properties</application.properties.file>
+                <application.properties.file>
+                    ${project.build.outputDirectory}/application-${spring.profiles.active}.properties
+                </application.properties.file>
             </properties>
         </profile>
     </profiles>

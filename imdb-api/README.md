@@ -44,7 +44,7 @@
 
 ## Features
 
-- [ ] Users can Sign up using their email and password.
+- [x] Users can Sign up using their email and password.
 - [ ] Users (whether signed in or not) can search for Movies/TV Shows/Artists.
 - [ ] Signed-in Users can leave review for Movies/TV Shows.
 - [ ] Signed-in Users can view their previous review and edit/delete them.
@@ -57,3 +57,59 @@
 - [ ] Search Top Movies/TV Shows by Ratings/Genres.
 - [ ] Create a GraphQL Client.
 
+## Local Setup
+
+**Setup Postgres 13**
+
+- See [Docker Configuration](https://github.com/thegauravmahawar/docker/blob/main/postgres-13.yml)
+- Create database `imdb`
+
+**Environment Variables**
+
+```shell
+export SPRING_PROFILES_ACTIVE=localdev
+```
+
+**Setup** `~/.m2/settings.xml`
+
+```xml
+<settings>
+    <servers>
+        <server>
+            <id>imdb_local</id>
+            <username>pguser</username>
+            <password>pgpass</password>
+        </server>
+    </servers>
+</settings>
+```
+
+**Run Flyway migrations**
+
+```shell
+mvn clean compile flyway:migrate
+```
+
+**Start server**
+
+```shell
+mvn spring-boot:run
+```
+
+**Test API**
+
+```shell
+curl --location 'localhost:9292'
+```
+
+**Create User**
+
+```shell
+curl --location 'localhost:9292/users/signup' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "System Admin",
+    "email": "system_admin@example.com",
+    "password": "#4tUs_e@tt_A"
+}'
+```

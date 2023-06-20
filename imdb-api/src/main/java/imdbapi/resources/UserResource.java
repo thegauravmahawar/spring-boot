@@ -9,6 +9,10 @@ public class UserResource extends Resource<User> {
         super(user);
     }
 
+    public UserResource() {
+        super(new User());
+    }
+
     public String getName() {
         return getModel().getName();
     }
