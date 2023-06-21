@@ -1,5 +1,8 @@
 package imdbapi.utils;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import imdbapi.dao.User;
+import imdbapi.models.AuthKey;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.BadPaddingException;
@@ -43,5 +46,13 @@ public class SecurityUtils {
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
         byte[] decrypted = cipher.doFinal(Base64.getUrlDecoder().decode(encryptedPassword));
         return new String(decrypted, Charset.forName(CHARSET));
+    }
+
+    public static String generateAuthKey(User user) throws NoSuchPaddingException,
+            IllegalBlockSizeException, UnsupportedEncodingException, NoSuchAlgorithmException,
+            BadPaddingException, InvalidKeyException, JsonProcessingException {
+        AuthKey authKey = new AuthKey(user.getEmail(), user.getKeyGeneratedAt());
+        String authKeyToEncrypt = JsonUtils.toJson(authKey);
+        return encrypt(authKeyToEncrypt, user.getSalt());
     }
 }

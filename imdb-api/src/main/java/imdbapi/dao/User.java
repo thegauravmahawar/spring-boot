@@ -59,4 +59,10 @@ public class User {
         keyGeneratedAt = updatedAt = createdAt = LocalDateTime.now();
     }
 
+    @Transient
+    private String authKey;
+
+    public void setAuthKey(String authKey) {
+        this.authKey = authKey;
+    }
 }

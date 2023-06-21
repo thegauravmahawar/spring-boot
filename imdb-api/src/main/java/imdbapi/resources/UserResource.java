@@ -1,5 +1,6 @@
 package imdbapi.resources;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import imdbapi.dao.User;
 import imdbapi.models.Resource;
 
@@ -31,5 +32,10 @@ public class UserResource extends Resource<User> {
 
     public void setPassword(String password) {
         getModel().setPassword(password);
+    }
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public String getAuthKey() {
+        return getModel().getAuthKey();
     }
 }
