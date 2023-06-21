@@ -39,6 +39,7 @@
 - [ ] Testing
 - [ ] MapReduce
 - [ ] Any OLAP Database
+- [ ] Use FlatBuffers/Protobuf
 - [ ] GraphQL
   - [ ] [Spring for GraphQL](https://docs.spring.io/spring-graphql/docs/current/reference/html/)
 
