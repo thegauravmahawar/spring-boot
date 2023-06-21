@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import imdbapi.dao.User;
 import imdbapi.exceptions.AlreadyExistException;
 import imdbapi.exceptions.InvalidParameterException;
+import imdbapi.exceptions.NotFoundException;
 import imdbapi.repositories.UserRepository;
 import imdbapi.resources.UserResource;
 import imdbapi.utils.ResourceValidator;
@@ -21,6 +22,7 @@ import javax.crypto.NoSuchPaddingException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDateTime;
 
 import static java.lang.String.format;
 
@@ -47,9 +49,9 @@ public class UserService {
         String password = SecurityUtils.encrypt(user.getPassword(), salt);
         user.setSalt(salt);
         user.setPassword(password);
-        user = userRepository.save(user);
+        user.setKeyGeneratedAt(LocalDateTime.now());
         user.setAuthKey(SecurityUtils.generateAuthKey(user));
-        return user;
+        return userRepository.save(user);
     }
 
     private void validate(UserResource userResource) throws InvalidParameterException {
@@ -64,4 +66,18 @@ public class UserService {
         }
     }
 
+    public User get(UserResource userResource) throws NotFoundException, InvalidParameterException, NoSuchPaddingException, IllegalBlockSizeException,
+            NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, UnsupportedEncodingException, JsonProcessingException {
+        if (StringUtils.isAnyBlank(userResource.getEmail(), userResource.getModel().getPassword())) {
+            throw new InvalidParameterException("'email' and 'password' are required.", "INVALID_PARAMETER");
+        }
+        User user = userRepository.findByEmail(userResource.getEmail())
+                .orElseThrow(() -> new NotFoundException(format("User with email %s not found.", userResource.getEmail()), "NOT_FOUND"));
+        String password = SecurityUtils.decrypt(user.getPassword(), user.getSalt());
+        if (!StringUtils.equals(password, userResource.getModel().getPassword())) {
+            throw new NotFoundException(format("User with email %s not found.", userResource.getEmail()), "NOT_FOUND");
+        }
+        user.setAuthKey(SecurityUtils.generateAuthKey(user));
+        return user;
+    }
 }

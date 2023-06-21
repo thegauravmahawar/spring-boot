@@ -2,6 +2,7 @@ package imdbapi.config;
 
 import imdbapi.exceptions.AlreadyExistException;
 import imdbapi.exceptions.InvalidParameterException;
+import imdbapi.exceptions.NotFoundException;
 import imdbapi.models.ApiResponse;
 import imdbapi.models.ApiResponseError;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,6 +22,11 @@ public class ExceptionHandlerConfig {
     @ExceptionHandler(InvalidParameterException.class)
     public ResponseEntity<ApiResponse> invalidParameterException(InvalidParameterException e) {
         return new ResponseEntity<>(new ApiResponseError(e.getMessage(), e.getCode()), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ApiResponse> notFoundException(NotFoundException e) {
+        return new ResponseEntity<>(new ApiResponseError(e.getMessage(), e.getCode()), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(Exception.class)

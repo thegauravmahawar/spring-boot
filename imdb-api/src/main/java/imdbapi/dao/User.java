@@ -56,7 +56,7 @@ public class User {
 
     @PrePersist
     public void onCreate() {
-        keyGeneratedAt = updatedAt = createdAt = LocalDateTime.now();
+        updatedAt = createdAt = LocalDateTime.now();
     }
 
     @Transient
