@@ -1,8 +1,6 @@
 package imdbapi.config;
 
-import imdbapi.exceptions.AlreadyExistException;
-import imdbapi.exceptions.InvalidParameterException;
-import imdbapi.exceptions.NotFoundException;
+import imdbapi.exceptions.*;
 import imdbapi.models.ApiResponse;
 import imdbapi.models.ApiResponseError;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,6 +25,16 @@ public class ExceptionHandlerConfig {
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ApiResponse> notFoundException(NotFoundException e) {
         return new ResponseEntity<>(new ApiResponseError(e.getMessage(), e.getCode()), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(InvalidHeaderException.class)
+    public ResponseEntity<ApiResponse> invalidHeaderException(InvalidHeaderException e) {
+        return new ResponseEntity<>(new ApiResponseError(e.getMessage(), e.getCode()), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(InvalidAuthKeyException.class)
+    public ResponseEntity<ApiResponse> invalidAuthKeyException(InvalidAuthKeyException e) {
+        return new ResponseEntity<>(new ApiResponseError(e.getMessage(), e.getCode()), HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(Exception.class)

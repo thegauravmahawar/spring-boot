@@ -6,13 +6,13 @@
   - [x] [Spring Boot 3 Feature Breakdown](https://www.youtube.com/watch?v=AcaR1wBi6mQ)
   - [ ] [Problem Detail](https://datatracker.ietf.org/doc/html/rfc7807)
   - [ ] GeneratedValue
-    - [ ] UUID
+    - [x] UUID
   - [ ] ListCrudRepository
   - [ ] RestController
-    - [ ] ResponseStatus
+    - [x] ResponseStatus
   - [ ] spring.datasource
-  - [ ] Lombok
-  - Spring Security
+  - [ ] [Lombok](https://projectlombok.org/features/)
+  - [ ] Spring Security
     - [ ] [Spring Security 6](https://www.youtube.com/watch?v=KxqlJblhzfI)
   - [ ] WebClient & RouteLocator
     - [ ] [Declarative REST Client](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html)
@@ -40,6 +40,7 @@
 - [ ] MapReduce
 - [ ] Any OLAP Database
 - [ ] Use FlatBuffers/Protobuf
+  - [ ] [FlatBuffers](https://flatbuffers.dev)
 - [ ] GraphQL
   - [ ] [Spring for GraphQL](https://docs.spring.io/spring-graphql/docs/current/reference/html/)
 

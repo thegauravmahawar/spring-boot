@@ -21,6 +21,7 @@ public class SecurityUtils {
 
     private static final String ENCRYPTION_ALGORITHM = "Blowfish";
     private static final String CIPHER_TRANSFORMATION = "Blowfish";
+    private static final String AUTH_KEY_SECRET = "xyR168qGGy";
     private static final String CHARSET = "UTF-8";
 
     public static String encrypt(String password, String key) throws
@@ -53,6 +54,10 @@ public class SecurityUtils {
             BadPaddingException, InvalidKeyException, JsonProcessingException {
         AuthKey authKey = new AuthKey(user.getEmail(), user.getKeyGeneratedAt());
         String authKeyToEncrypt = JsonUtils.toJson(authKey);
-        return encrypt(authKeyToEncrypt, user.getSalt());
+        return encrypt(authKeyToEncrypt, AUTH_KEY_SECRET);
+    }
+
+    public static String decryptAuthKey(String key) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        return decrypt(key, AUTH_KEY_SECRET);
     }
 }

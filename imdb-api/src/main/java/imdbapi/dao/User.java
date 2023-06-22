@@ -8,7 +8,10 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.UUID;
+
+import static imdbapi.models.Privilege.ADMIN;
 
 @Data
 @Entity
@@ -49,6 +52,9 @@ public class User {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @OneToOne(mappedBy = "user")
+    private UserSystemPrivilege userSystemPrivilege;
+
     @PreUpdate
     public void onUpdate() {
         updatedAt = LocalDateTime.now();
@@ -64,5 +70,9 @@ public class User {
 
     public void setAuthKey(String authKey) {
         this.authKey = authKey;
+    }
+
+    public boolean isAdmin() {
+        return Objects.nonNull(userSystemPrivilege) && ADMIN == userSystemPrivilege.getPrivilege();
     }
 }
