@@ -1,0 +1,11 @@
+CREATE TABLE title (
+    id UUID PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    type VARCHAR(50) NOT NULL CHECK (type IN ('MOVIE', 'TV_SERIES', 'DOCUMENTARY')),
+    start_year DATE NOT NULL,
+    end_year DATE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_by UUID NOT NULL REFERENCES users(id),
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_by UUID NOT NULL REFERENCES users(id)
+);

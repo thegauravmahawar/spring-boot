@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
-import static imdbapi.models.Privilege.ADMIN;
+import static imdbapi.models.PrivilegeType.ADMIN;
 
 @Data
 @Entity
@@ -25,7 +25,7 @@ public class User {
 
     @NotBlank(message = "Name cannot be blank.")
     @Pattern(regexp = "^[a-zA-Z]+\\s[a-zA-Z]+$", message = "The name is invalid. Format: 'John Doe'")
-    @Size(min = 1, max = 255)
+    @Size(min = 1, max = 100)
     @Column(name = "name")
     private String name;
 

@@ -1,6 +1,6 @@
 package imdbapi.dao;
 
-import imdbapi.models.Privilege;
+import imdbapi.models.PrivilegeType;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,5 +22,5 @@ public class UserSystemPrivilege {
 
     @Column(name = "privilege")
     @Enumerated(EnumType.STRING)
-    private Privilege privilege;
+    private PrivilegeType privilege;
 }
