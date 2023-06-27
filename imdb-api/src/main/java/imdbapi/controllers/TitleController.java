@@ -2,6 +2,7 @@ package imdbapi.controllers;
 
 import imdbapi.dao.Title;
 import imdbapi.dao.User;
+import imdbapi.exceptions.InvalidParameterException;
 import imdbapi.models.ApiResponseSuccess;
 import imdbapi.resources.TitleResource;
 import imdbapi.services.TitleService;
@@ -24,7 +25,7 @@ public class TitleController {
 
     @PostMapping(value = "/title", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public ApiResponseSuccess createMovie(@RequestBody TitleResource titleResource,  HttpServletRequest request) {
+    public ApiResponseSuccess createMovie(@RequestBody TitleResource titleResource,  HttpServletRequest request) throws InvalidParameterException {
         User principal = (User) request.getAttribute("principal");
         Title title = titleService.create(titleResource, principal);
         return new ApiResponseSuccess(new TitleResource(title));

@@ -3,6 +3,7 @@ package imdbapi.dao;
 import imdbapi.models.TitleType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -29,11 +30,12 @@ public class Title {
     @Enumerated(EnumType.STRING)
     private TitleType type;
 
+    @NotNull(message = "Start year cannot be null")
     @Column(name = "start_year")
-    private LocalDate startYear;
+    private Integer startYear;
 
     @Column(name = "end_year")
-    private LocalDate endYear;
+    private Integer endYear;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
@@ -57,5 +59,6 @@ public class Title {
     @PrePersist
     public void onCreate() {
         updatedAt = createdAt = LocalDateTime.now();
+        updatedBy = createdBy;
     }
 }
