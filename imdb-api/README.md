@@ -7,7 +7,7 @@
   - [ ] [Problem Detail](https://datatracker.ietf.org/doc/html/rfc7807)
   - [ ] GeneratedValue
     - [x] UUID
-  - [ ] ListCrudRepository
+  - [x] [ListCrudRepository](https://www.baeldung.com/spring-data-3-crud-repository-interfaces)
   - [ ] RestController
     - [x] ResponseStatus
   - [ ] spring.datasource
