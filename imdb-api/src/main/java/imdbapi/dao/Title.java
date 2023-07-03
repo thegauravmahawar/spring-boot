@@ -1,14 +1,17 @@
 package imdbapi.dao;
 
+import imdbapi.models.Genre;
 import imdbapi.models.TitleType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import org.hibernate.annotations.Cascade;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -50,6 +53,12 @@ public class Title {
     @JoinColumn(name = "updated_by")
     @ManyToOne
     private User updatedBy;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "title_genre", joinColumns = @JoinColumn(name = "title_id"))
+    @Column(name = "genre")
+    @Enumerated(EnumType.STRING)
+    private List<Genre> genres = new ArrayList<>(0);
 
     @PreUpdate
     public void onUpdate() {

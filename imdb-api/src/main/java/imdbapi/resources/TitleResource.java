@@ -1,11 +1,13 @@
 package imdbapi.resources;
 
 import imdbapi.dao.Title;
+import imdbapi.models.Genre;
 import imdbapi.models.Resource;
 import imdbapi.models.TitleType;
 import org.apache.commons.lang3.StringUtils;
 
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Objects;
 
 public class TitleResource extends Resource<Title> {
@@ -50,6 +52,14 @@ public class TitleResource extends Resource<Title> {
             return String.valueOf(getModel().getStartYear());
         }
         return StringUtils.EMPTY;
+    }
+
+    public void setGenres(List<Genre> genres) {
+        getModel().setGenres(genres);
+    }
+
+    public List<Genre> getGenres() {
+        return getModel().getGenres();
     }
 
     public UserResource getCreatedBy() {
