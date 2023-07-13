@@ -47,7 +47,6 @@ public class InterceptorConfig implements WebMvcConfigurer {
     private final String[] ADMIN_PATTERNS = new String[]{
             "/admin/**",
             "/title",
-            "/artist"
     };
 
 }
