@@ -48,7 +48,7 @@
 
 - [x] Users can Sign up using their email and password.
 - [x] Admin Users can add new Movies/TV Shows.
-- [ ] Users (whether signed in or not) can search for Movies/TV Shows.
+- [x] Users (whether signed in or not) can search for Movies/TV Shows.
 - [ ] Signed-in Users can leave review for Movies/TV Shows.
 - [ ] Signed-in Users can view their previous review and edit/delete them.
 - [ ] Signed-in Users can create lists of their favourite Movies/TV Shows.
