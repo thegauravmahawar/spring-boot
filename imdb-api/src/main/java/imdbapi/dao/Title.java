@@ -1,19 +1,40 @@
 package imdbapi.dao;
 
 import imdbapi.models.Genre;
+import imdbapi.models.TitleSearch;
 import imdbapi.models.TitleType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
-import org.hibernate.annotations.Cascade;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Title.getAllDataForSearch",
+                query = "SELECT t.id, t.name, t.type, t.start_year, t.end_year FROM title t",
+                resultSetMapping = "titleSearchMapping"
+        )
+})
+@SqlResultSetMappings({
+        @SqlResultSetMapping(name = "titleSearchMapping", classes = {
+                @ConstructorResult(
+                        targetClass = TitleSearch.class,
+                        columns = {
+                                @ColumnResult(name = "id", type = UUID.class),
+                                @ColumnResult(name = "name", type = String.class),
+                                @ColumnResult(name = "type", type = String.class),
+                                @ColumnResult(name = "start_year", type = Integer.class),
+                                @ColumnResult(name = "end_year", type = Integer.class)
+                        }
+                )
+        })
+})
 @Data
 @Entity
 @Table(name = "title")

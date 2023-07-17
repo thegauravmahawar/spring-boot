@@ -42,6 +42,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
             "/env",
             "/users/signup",
             "/users/auth-key",
+            "/title-search"
     };
 
     private final String[] ADMIN_PATTERNS = new String[]{
