@@ -2,7 +2,6 @@ package imdbapi.resources;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import imdbapi.dao.User;
-import imdbapi.models.Resource;
 
 public class UserResource extends Resource<User> {
 

@@ -1,7 +1,7 @@
 package imdbapi.utils;
 
 import imdbapi.exceptions.InvalidParameterException;
-import imdbapi.models.Resource;
+import imdbapi.resources.Resource;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;

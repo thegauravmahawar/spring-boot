@@ -2,7 +2,6 @@ package imdbapi.resources;
 
 import imdbapi.dao.Title;
 import imdbapi.models.Genre;
-import imdbapi.models.Resource;
 import imdbapi.models.TitleType;
 import org.apache.commons.lang3.StringUtils;
 

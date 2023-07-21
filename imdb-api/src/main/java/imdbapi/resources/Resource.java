@@ -1,4 +1,4 @@
-package imdbapi.models;
+package imdbapi.resources;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
