@@ -3,6 +3,7 @@ package imdbapi.resources;
 import imdbapi.dao.Review;
 
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 public class ReviewResource extends Resource<Review> {
 
@@ -20,6 +21,10 @@ public class ReviewResource extends Resource<Review> {
 
     public void setStars(Float stars) {
         getModel().setStars(stars);
+    }
+
+    public UUID getId() {
+        return getModel().getId();
     }
 
     public String getMessage() {

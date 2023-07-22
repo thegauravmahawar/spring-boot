@@ -55,4 +55,22 @@ public class ReviewService {
             throw new InvalidParameterException("Review stars are invalid.", "INVALID_PARAMETER");
         }
     }
+
+    @Transactional(rollbackFor = {Throwable.class})
+    public Review update(ReviewResource reviewResource, String reviewId, User principal)
+            throws InvalidParameterException, NotFoundException {
+        ResourceValidator.validate(reviewResource);
+        validate(reviewResource);
+        Review updatedReview = reviewResource.getModel();
+        Review review = reviewRepository.findByIdAndReviewer(UUID.fromString(reviewId), principal)
+                .orElseThrow(() -> new NotFoundException(format("Review not found with id %s.", reviewId), "NOT_FOUND"));
+        review.setMessage(updatedReview.getMessage());
+        review.setStars(updatedReview.getStars());
+        return reviewRepository.save(review);
+    }
+
+    @Transactional(rollbackFor = {Throwable.class})
+    public void delete(String reviewId, User principal) {
+        reviewRepository.deleteByIdAndReviewer(UUID.fromString(reviewId), principal);
+    }
 }
