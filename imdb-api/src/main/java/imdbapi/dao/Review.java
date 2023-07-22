@@ -2,6 +2,7 @@ package imdbapi.dao;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -36,4 +37,14 @@ public class Review {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @PreUpdate
+    public void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
+
+    @PrePersist
+    public void onCreate() {
+        updatedAt = createdAt = LocalDateTime.now();
+    }
 }
