@@ -13,6 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -66,6 +67,7 @@ public class ReviewService {
                 .orElseThrow(() -> new NotFoundException(format("Review not found with id %s.", reviewId), "NOT_FOUND"));
         review.setMessage(updatedReview.getMessage());
         review.setStars(updatedReview.getStars());
+        review.setUpdatedAt(LocalDateTime.now());
         return reviewRepository.save(review);
     }
 
