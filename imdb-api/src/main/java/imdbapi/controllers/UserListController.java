@@ -30,12 +30,4 @@ public class UserListController {
         return new ApiResponseSuccess(new UserListResource(userList));
     }
 
-    @PostMapping(value = "/list/titles", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.CREATED)
-    public ApiResponseSuccess addTitlesToUserList(@RequestBody UserListResource userListResource,
-                                                  HttpServletRequest request) throws InvalidParameterException {
-        User principal = (User) request.getAttribute("principal");
-        UserList userList = userListService.addTitles(userListResource, principal);
-        return new ApiResponseSuccess(new UserListResource(userList));
-    }
 }
