@@ -1,6 +1,8 @@
 package imdbapi.dao;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -16,6 +18,8 @@ public class UserList {
     @Column(name = "id")
     private UUID id;
 
+    @NotBlank(message = "Name cannot be blank.")
+    @Size(min = 1, max = 100)
     @Column(name = "name")
     private String name;
 
