@@ -2,7 +2,7 @@
 
 ## Learn
 - [ ] Spring Boot 3
-  - [ ] Java 17 Features
+  - [x] Java 17 Features
   - [x] [Spring Boot 3 Feature Breakdown](https://www.youtube.com/watch?v=AcaR1wBi6mQ)
   - [ ] [Problem Detail](https://datatracker.ietf.org/doc/html/rfc7807)
   - [ ] GeneratedValue
