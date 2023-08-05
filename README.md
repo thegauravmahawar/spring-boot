@@ -8,7 +8,7 @@
 - [ ] Spring Transaction Management
 - [ ] Spring Security
 
-## Projects
+## Learning Projects
 
 - [ ] Spring Data
 - [ ] Spring Cloud
@@ -17,6 +17,10 @@
 - [ ] Spring Session
 - [ ] Spring Batch
 - [ ] Spring AMQP
+
+## Personal Projects
+
+[ ] URL Shortener
 
 ## Articles
 
