@@ -1,8 +1,12 @@
 # spring-boot
 
-## Topics
+## TODO
 
-- [Transaction Management in Spring](spring-transaction-management)
+- [ ] Spring Framework Basics
+- [ ] Spring Boot Autoconfiguration
+- [ ] Spring MVC
+- [ ] Spring Transaction Management
+- [ ] Spring Security
 
 ## Projects
 
@@ -17,12 +21,3 @@
 ## Articles
 
 - [Log SQL statements with Spring Boot](https://vladmihalcea.com/log-sql-spring-boot/)
-
-## TODO
-
-- [ ] Spring Framework Basics
-- [ ] Spring Boot Autoconfiguration
-- [ ] Spring MVC
-- [ ] Spring Transaction Management
-- [ ] Spring Security
-
