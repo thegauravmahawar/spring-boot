@@ -1,6 +1,6 @@
 # spring-boot
 
-## TODO
+## Learn
 
 - [ ] Spring Framework Basics
 - [ ] Spring Boot Autoconfiguration
@@ -20,7 +20,7 @@
 
 ## Personal Projects
 
-- [ ] URL Shortener
+- [ ] [URL Shortener](personal-projects/url-shortener)
 
 ## Articles
 
