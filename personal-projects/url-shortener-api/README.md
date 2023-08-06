@@ -14,14 +14,8 @@ gradle tasks
 gradle build
 ```
 
-or 
-
-```shell
-./gradlew build
-```
-
 **Run project**
 
 ```shell
-./gradlew run
+gradle run
 ```
