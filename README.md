@@ -20,7 +20,7 @@
 
 ## Personal Projects
 
-- [ ] [URL Shortener](personal-projects/url-shortener)
+- [ ] [URL Shortener](personal-projects/url-shortener-api)
 
 ## Articles
 
