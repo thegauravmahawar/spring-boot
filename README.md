@@ -9,7 +9,7 @@
 - [ ] Spring Security
   - [ ] [Spring Security 6](https://www.youtube.com/watch?v=KxqlJblhzfI)
 - [ ] Spring Boot 3
-  - [ ] [Problem Detail]((https://datatracker.ietf.org/doc/html/rfc7807))
+  - [ ] [Problem Detail](https://datatracker.ietf.org/doc/html/rfc7807)
 - [ ] Hibernate
   - [ ] GeneratedValue
     - [ ] UUID
@@ -17,6 +17,10 @@
 - [ ] [Lombok](https://projectlombok.org/features/)
 - [ ] Metrics & Tracing
   - [ ] [Observability with Spring Boot 3](https://spring.io/blog/2022/10/12/observability-with-spring-boot-3)
+- [ ] Docker Compose with Spring Boot
+  - [ ] [Spring Boot Docker Compose](https://www.youtube.com/watch?v=lS1GwdIfk0c)
+  - [ ] [Creating Docker images with Spring Boot](https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1)
+  - [ ] [Docker Compose Support in Spring Boot 3](https://docs.spring.io/spring-boot/docs/3.1.0/reference/html/features.html#features.docker-compose)
 
 ## Learning Projects
 
