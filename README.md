@@ -21,6 +21,22 @@
   - [ ] [Spring Boot Docker Compose](https://www.youtube.com/watch?v=lS1GwdIfk0c)
   - [ ] [Creating Docker images with Spring Boot](https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1)
   - [ ] [Docker Compose Support in Spring Boot 3](https://docs.spring.io/spring-boot/docs/3.1.0/reference/html/features.html#features.docker-compose)
+- [ ] [Buildpacks](https://buildpacks.io)
+- [ ] TestContainers
+- [ ] POM
+- [ ] Hibernate ORM Tooling
+- [ ] Spring Properties
+- [ ] Logging
+  - [ ] Log4j2
+- [ ] Async Exception Handling
+- [ ] GraalVM
+  - [ ] [Spring Boot in Graal](https://www.youtube.com/watch?v=VRb8JSfI9eg)
+  - [ ] [ahead-of-time compilation and GraalVM](https://www.youtube.com/watch?v=TOfYlLjXufw)
+  - [ ] Compilation: `mvn clean package -P native`
+  - [ ] Memory footprint: `ps -o rss pid`
+- [ ] ORM/Database Performance
+- [ ] GraphQL
+  - [ ] [Spring for GraphQL](https://docs.spring.io/spring-graphql/docs/current/reference/html/)
 
 ## Learning Projects
 
