@@ -1,5 +1,10 @@
 # spring-boot
 
+## Resources
+
+- [Spring Boot Documentation](https://spring.io/projects/spring-boot)
+- [Hibernate Documentation](https://hibernate.org)
+
 ## Learn
 
 - [ ] Spring Framework Basics
