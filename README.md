@@ -59,3 +59,4 @@
 ## Articles
 
 - [Log SQL statements with Spring Boot](https://vladmihalcea.com/log-sql-spring-boot/)
+- [Health Checks in Spring Boot](https://reflectoring.io/spring-boot-health-check/)
