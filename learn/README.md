@@ -1,17 +1,6 @@
 # Spring Boot
 
-## Resources
+## Topics
 
-- [Spring Boot - Web Basics](https://youtu.be/fvtH2KMWlRQ?feature=shared)
-
-## Spring Web
-
-## Spring Security
-
-## Spring Testing
-
-## Annotations
-
-### @Controller, @RestController
-
-### @Service, @Component, @Repository, @Configuration
+- [Spring Transaction Management](spring-transaction-management.md)
+- [Spring Security](spring-security.md)
