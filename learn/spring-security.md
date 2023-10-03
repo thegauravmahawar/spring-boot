@@ -18,4 +18,29 @@
 
 **Servlet Filters**: 
 
+There is no security hardcoded into the `DispatcherServlet`. Optimally, the authentication and authorization should be done before a request hits your @Controller.
 
+There is a way to do it: you can put filters in front of servlets, which means you could think about writing a SecurityFilter and configure it in your Tomcat to filter every incoming HTTP request before it hits your servlet.
+
+![Security Filter Example](../assets/security-filter-example.png)
+
+A naive SecurityFilter
+
+```java
+import javax.servlet.*;
+import javax.servlet.http.HttpFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+public class SecurityServletFilter extends HttpFilter {
+
+    @Override
+    protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
+        UsernamePasswordToken token = extractUsernameAndPasswordFromRequest(request);
+    }
+
+    
+
+}
+```
