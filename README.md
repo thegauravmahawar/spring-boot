@@ -30,7 +30,28 @@
   - [ ] [Docker Compose Support in Spring Boot 3](https://docs.spring.io/spring-boot/docs/3.1.0/reference/html/features.html#features.docker-compose)
 - [ ] [Buildpacks](https://buildpacks.io)
 - [ ] TestContainers
+- [ ] Spring Boot DevTools
+- [ ] Spring Modulith
+- [ ] Spring Reactive Web
+- [ ] Rest Repositories
+- [ ] Spring Session
+- [ ] Spring HATEOAS
+- [ ] OAuth2 Client
+- [ ] JOOQ Access Layer
+- [ ] Spring Batch
+- [ ] Quartz Scheduler
+- [ ] Zipkin
+- [ ] Spring REST Docs
+- [ ] Config Client
+- [ ] Config Server
+- [ ] Vault Configuration
+- [ ] Eureka Server
+- [ ] Gateway
+- [ ] OpenFeign
+- [ ] Cloud LoadBalancer
+- [ ] Resilience4J
 - [ ] POM
+- [ ] Hibernate Validator
 - [ ] Hibernate ORM Tooling
 - [ ] Spring Properties
 - [ ] Logging
