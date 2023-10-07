@@ -79,3 +79,20 @@ public class SecurityServletFilter extends HttpFilter {
 4. If the request survives all the checks, then the filter can let the request go through to your DispatcherServlet, i.e. your @Controllers.
 
 **FilterChains**
+
+For the above example, in real world, we would split the filter into *multiple* filters, that you then *chain* together.
+
+For example, an incoming HTTP request would:
+
+1. First, go through a LoginMethodFilter...
+2. Then, go through an AuthenticationFilter...
+3. Then, go through an AuthorizationFilter...
+4. Finally, hit your servlet.
+
+This concept is called *FilterChain*
+
+```java
+chain.doFilter(request, response);
+```
+
+## FilterChain & Security Configuration DSL
