@@ -14,6 +14,7 @@
 - [ ] Spring Security
   - [ ] [Spring Security: Authentication & Authorization](https://www.marcobehler.com/guides/spring-security)
   - [ ] [Spring Security 6](https://www.youtube.com/watch?v=KxqlJblhzfI)
+  - [ ] [Spring Security with JWT](https://www.toptal.com/spring/spring-security-tutorial)
   - [ ] [Spring Security & OAuth 2.0](https://www.marcobehler.com/guides/spring-security-oauth2)
 - [ ] Spring Boot 3
   - [ ] [Problem Detail](https://datatracker.ietf.org/doc/html/rfc7807)
